@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-// import fs from 'fs';
+import fs from 'fs';
 
 import Cls from "./Cls";
 import { lib } from "./lib";
