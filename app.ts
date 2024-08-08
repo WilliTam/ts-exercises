@@ -1,5 +1,6 @@
-import dotenv from 'dotenv';
-import fs from 'fs';
+// import dotenv from 'dotenv';
+// dotenv.config()
+// import fs from 'fs';
 
 import Cls from "./Cls";
 import { lib } from "./lib";
