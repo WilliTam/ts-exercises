@@ -28,6 +28,7 @@ function leapYear(year: number): boolean {
 }
 
 function rnaTranscription(dna: string): string {
+  //dna can be string, string[] OR Array<"G"|"C"|"T"|"A">
   let rna: string = "";
   for (let nucleotide of dna) {
     switch (nucleotide) {
@@ -50,6 +51,8 @@ function rnaTranscription(dna: string): string {
   return rna;
 }
 
+console.log(rnaTranscription("CG"));
+
 function factorial(number: number): number {
   if (number === 0 || number === 1) {
     return 1;
@@ -61,44 +64,13 @@ const timeoutHandler: () => void = () => {
   console.log("Timeout happens!");
 };
 
-const timeout:number = 1000;
+const timeout: number = 1000;
 
 setTimeout(timeoutHandler, timeout);
 
+const someValue: (number | null) = Math.random() > 0.5 ? 12 : null;
 
-type GiveMarks = (number|null)
-const someValue : GiveMarks = Math.random() > 0.5 ? 12 : null;
-
-
-type Teacher = {
-    name: string,
-    age: number,
-    students: [
-      { name: string, age: number },
-      { name: string, age: number },
-      {
-        name: string,
-        age: number,
-        exercises: [{ score: number, date: Date }],
-      },
-    ],
-  };
-const peter: Teacher= {
-    name: "Peter",
-    age: 50,
-    students: [
-      { name: "Andy", age: 20 },
-      { name: "Bob", age: 23 },
-      {
-        name: "Charlie",
-        age: 25,
-        exercises: [{ score: 60, date: new Date("2019-01-05") }],
-      },
-    ],
-  };
-
-
-// const peter:{
+// type Teacher = {
 //     name: string,
 //     age: number,
 //     students: [
@@ -110,7 +82,8 @@ const peter: Teacher= {
 //         exercises: [{ score: number, date: Date }],
 //       },
 //     ],
-//   } = {
+//   };
+// const peter: Teacher= {
 //     name: "Peter",
 //     age: 50,
 //     students: [
@@ -124,6 +97,24 @@ const peter: Teacher= {
 //     ],
 //   };
 
-
-
-
+const peter: {
+  name: string;
+  age: number;
+  students: {
+    name: string;
+    age: number;
+    exercises?: { score: number; date: Date }[];    // "?" means it is optional
+  }[];
+} = {
+  name: "Peter",
+  age: 50,
+  students: [
+    { name: "Andy", age: 20 },
+    { name: "Bob", age: 23 },
+    {
+      name: "Charlie",
+      age: 25,
+      exercises: [{ score: 60, date: new Date("2019-01-05") }],
+    },
+  ],
+};
